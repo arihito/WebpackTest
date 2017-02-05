@@ -1,0 +1,15 @@
+{
+  "name": "test02",
+  "version": "1.0.0",
+  "description": "2017 http://js.studio-kingdom.com/webpack/getting_started/webpack_your_bags",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
