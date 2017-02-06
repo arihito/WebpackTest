@@ -5,5 +5,17 @@ module.exports = {
   output: {
     path: 'builds',
     filename: 'bundle.js',
+  },
+  module: {
+    loaders: [
+      {
+        // 全てのjsファイル
+        test: /\.js/,
+        // babelにトランスパイル
+        loader: 'babel',
+        // プロジェクトルート直下のsrcフォルダ内を読み込む
+        include: __dirname + '/src',
+      }
+    ]
   }
 }
