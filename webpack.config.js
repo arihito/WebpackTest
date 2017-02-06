@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = {
   // 読み込むフォルダ
   entry: './src',
@@ -8,6 +10,13 @@ module.exports = {
     chunkFilename: "[name].bundle.js",
     publicPath: 'builds/',
   },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'main',   // 依存性をmainファイルに移動
+      children: true, // 全ての子に対しても共通する依存性を探す
+      minChunks: 2,   // 指定した回数分の繰り返した依存性に遭遇したら抜き出す
+    }),
+  ],
   module: {
     loaders: [
       {
