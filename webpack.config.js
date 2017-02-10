@@ -11,11 +11,11 @@ var plugins = [
 ];
 
 if (production) {
-  plugins = plugins.contact([
+  plugins = plugins.concat([
     // 製品版のプラグインを指定
 
     // buildsフォルダ内をクリーンアップ
-    new CleanPlugin('builds');
+    new CleanPlugin('builds'),
 
     // キャッシュを軽減するため同名のチャンクファイルをマージ
     new webpack.optimize.DedupePlugin(),
@@ -27,6 +27,11 @@ if (production) {
     new webpack.optimize.MinChunkSizePlugin({
       minChunkSize: 51200, // ~50kb
     }),
+
+    // Webpack2用のローダーデバッグ
+    new webpack.LoaderOptionsPlugin({
+       debug: true
+    })
 
     // 最終的なバンドルした全JSファイルを圧縮化
     new webpack.optimize.UglifyJsPlugin({
